@@ -24,13 +24,23 @@
                     <input type="text" class="form-control" id="title" name="title">
                 </div>
                 <div class="mb-3">
+                    <label for="type" class="form-label">type</label>
+                    <select class="form-select" name="type_id">
+                        <option value="">select type</option>
+                        @foreach ($types as $type)
+                            
+                        @endforeach
+                   
+                    </select>
+                </div>
+                <div class="mb-3">
                     <label for="content" class="form-label">content</label>
                     <textarea class="form-control" id="exampleInputPassword1" name="content"></textarea>
                 </div>
                 <div class="mb-3">
                     <label for="cover_img" class="form-label">cover_img</label>
                     <input class="form-control" type="file" id="cover_img" name="cover_img">
-                  </div>
+                </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>

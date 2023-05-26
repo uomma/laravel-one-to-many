@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use App\Models\Type;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -30,7 +31,12 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+            $data=[
+                'types' =>Type::all(),
+            ];
+
+    
+        return view('admin.posts.create', $data);
     }
 
     /**
@@ -50,6 +56,10 @@ class PostController extends Controller
         {
             $path_img= Storage::put('uploads/posts', $data['cover_img']);
             $post->cover_img = $path_img;            
+        };
+
+        if(isset($data['type_id'])){
+            $post->type_id = $data['type_id'];
         };
         $post->save();
 

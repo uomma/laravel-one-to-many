@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StorePostRequest extends FormRequest
+class UpdateTypeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,21 +13,18 @@ class StorePostRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array <string, mixed>
+     * @return array<string, mixed>
      */
     public function rules()
     {
         return [
-            'title' => 'required|string|max:150',
-            'content' => 'string|nullable',
-            'cover_img'=> ' image|nullable',
-            'type_id'=> 'nullable|exists:type,id'
+            //
         ];
     }
 }
